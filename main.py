@@ -1,4 +1,5 @@
 import random
+
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 your_choice = []
 computer_choice = []
@@ -16,40 +17,60 @@ def calculate_score(choice):
         score -= 10
     return score
 
+
 your_score = calculate_score(your_choice)
 computer_score = calculate_score(computer_choice)
 
-print(f"one of computer card: {computer_choice[0]}")
-print(f"your cards is: {your_choice} and your score is: {your_score}")
+
+print(
+    """
+.------.            _     _            _    _            _    
+|A_  _ |.          | |   | |          | |  (_)          | |   
+|( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
+| \  /|K /\  |     | '_ \| |/ _` |/ __| |/ / |/ _` |/ __| |/ /
+|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   < 
+`-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\\
+      |  \/ K|                            _/ |                
+      `------'                           |__/           
+"""
+)
+
+print(
+    f"Welcome to Blackjack!\n\nComputer's card: {computer_choice[0]}\nYour cards are: {your_choice} and your score is: {your_score}\n"
+)
 
 while your_score < 21:
-    draw_card = input("If you want an extra card, type 'hit'. Type 'stand' to stop: ")
+    draw_card = input(
+        "If you want an extra card, type 'hit'. Type 'stand' to stop: "
+    ).lower()
     if draw_card == "hit":
         extra_card = random.choice(cards)
         your_choice.append(extra_card)
         your_score += extra_card
         print(f"Your cards are: {your_choice} and your score is: {your_score}")
         if your_score > 21:
-            print("You bust!")
+            print("You bust! 😔")
             break
-    else:
+    elif draw_card == "stand":
         break
+    else:
+        print("Please enter 'hit' or'stand'.")
+
 
 while computer_score < 17:
     extra_card_computer = random.choice(cards)
     computer_choice.append(extra_card_computer)
     computer_score += extra_card_computer
 
-
-print(f"Your final score: {your_score}, Computer's final score: {computer_score}")
-
+print(f"\nYour cards are: {your_choice} and your score is: {your_score}")
+print(f"\nThe computer cards are: {computer_choice}, and it's score: {computer_score}")
 
 if your_score > 21:
-    print("You bust! You lose.")
+    print("You bust! You lose. 😭")
 elif computer_score > 21 or your_score > computer_score:
-    print("You win!")
+    print("You win! 🎉")
 elif computer_score > your_score:
-    print("Computer wins!")
-else:
-    print("It's a tie.")
 
+    print("Computer wins! 💻")
+else:
+    print("It's a tie. 🤝")
