@@ -4,10 +4,8 @@ your_choice = []
 computer_choice = []
 
 for number in range(0, 2):
-    card_chosen = random.choice(cards)
-
-    your_choice.append(card_chosen)
-    computer_choice.append(card_chosen)
+    your_choice.append(random.choice(cards))
+    computer_choice.append(random.choice(cards))
 
 
 def calculate_score(choice):
