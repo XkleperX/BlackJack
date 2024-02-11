@@ -1,4 +1,5 @@
 import random
+from art import logo
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 your_choice = []
@@ -22,18 +23,7 @@ your_score = calculate_score(your_choice)
 computer_score = calculate_score(computer_choice)
 
 
-print(
-    """
-.------.            _     _            _    _            _    
-|A_  _ |.          | |   | |          | |  (_)          | |   
-|( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
-| \  /|K /\  |     | '_ \| |/ _` |/ __| |/ / |/ _` |/ __| |/ /
-|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   < 
-`-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\\
-      |  \/ K|                            _/ |                
-      `------'                           |__/           
-"""
-)
+print(logo)
 
 print(
     f"Welcome to Blackjack!\n\nComputer's card: {computer_choice[0]}\nYour cards are: {your_choice} and your score is: {your_score}\n"
