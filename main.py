@@ -22,7 +22,6 @@ def calculate_score(choice):
 your_score = calculate_score(your_choice)
 computer_score = calculate_score(computer_choice)
 
-
 print(logo)
 
 print(
